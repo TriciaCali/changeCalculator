@@ -91,7 +91,7 @@ function calculateChange(amountDue, amountGiven){
             animateValue(i, 0, currentMoneyCount, 500);
             document.getElementById(billCoinWordsArr[i]+"-output").innerHTML= currentMoneyCount;
         }}}
-          else{//the customer did not give enough money
+          else{//thee customer did not give enough money
             document.getElementById("errorMessage").innerHTML="Customer owes you $"+ totalChangeDue.toFixed(2);
           }
           document.getElementById("cha-ching").play();     
