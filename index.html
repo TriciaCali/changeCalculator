@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:;base64,=">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;600;700&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
     <title>Change Calculator</title>
   </head>
   <body>
-    <!-- Write your markup here -->
-
-    <!-- Don't forget to add your <script> tag here -->
-
+    <audio preload="auto" id="cha-ching">
+      <source src="/audio/cha-ching.mp3" type="audio/mpeg">
+    </audio>
+    <div id="test"></div>
+    <h1 style="color:white">Change Calculator</h1>
+    <img id="title-img" src="pictures/title-img.gif" alt="Title Change Calculator">
+    <div id="amountFormDiv">
+  <form id="amountForm">
+    <label for="amount-due">How much is due for the sale?</label><br><br>
+    $<input id="amount-due" class="resizeInputBoxes" type="number" required><br><br><br>
+    <label for="amount-received">How much has the customer<br> given you?</label><br><br>
+    $<input id="amount-received" class="resizeInputBoxes" type="number" required><br><br><br>
+    <button id="calculate-change" type="button" onclick="calculateBtnClick()">CALCULATE</button>
+    </form>
+    <p id="change-due-label">Total Change Due: </p>
+    <p id="output-total-due"></p><br>
+<button id="clear-screen-btn" type="button" onclick="clearScrnBtnClick()">CLEAR SCREEN</button>
+<p id="errorMessage"></p>
+</div>
+  <div id="resultsDiv"> 
+    <img id="change-due-word-img" src="pictures/change-due-word-img.svg" >
+    <p id="dollars-output" hidden></p>
+<div id="dollar-imagesDiv">
+  <div class="container">
+    <img id="twenty-bill-img" src="pictures/twenty-bill-img.png" alt="picture of twenty dollar bill" class="resizeAlignDollars">
+    <div class="overlay">
+      <div class="text">Twenty Dollar Bills</div>
+    </div>
+  </div>
+  <div class="container">
+  <img id="ten-bill-img" src="pictures/ten-bill-img.png"  alt="picture of ten dollar bill" class="resizeAlignDollars">
+  <div class="overlay">
+    <div class="text">Ten Dollar Bills</div>
+  </div>
+</div>
+  <div class="container">
+  <img id="five-bill-img" src="pictures/five-bill-img.png" alt="picture of five dollar bill" class="resizeAlignDollars">
+  <div class="overlay">
+    <div class="text">Five Dollar Bills</div>
+  </div>
+</div>
+  <div class="container">
+  <img id="one-bill-img" src="pictures/one-bill-img.png" alt="picture of one dollar bill" class="resizeAlignDollars">
+  <div class="overlay">
+    <div class="text">One Dollar Bills</div>
+  </div>
+</div>
+  <div id="dollar-resultsDiv" >
+    <p id="twenty-output"></p>
+    <p id="ten-output"></p>
+    <p id="five-output"></p>
+    <p id="one-output"></p>
+  </div>
+</div>
+  <img id="all-coins-img" src="pictures/all-coin-img.svg" alt="picture of all coins" class="size-align-coins">
+  <div id="quarters-output" style="float:left;"></div>
+  <div id="dimes-output" style="float:left;"></div>
+    <div id="nickels-output" style="float:left;"></div>
+      <div id="pennies-output" style="float:left;"></div>
+</div>
+<script src="main.js" charset="utf-8"></script>
   </body>
 </html>

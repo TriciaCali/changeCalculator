@@ -1,0 +1,163 @@
+body{
+    background-color: #FFFFFF;
+    margin-left:auto;
+}
+#title-img {
+    position:relative;
+    width: 20em;
+    left: 5%;    
+}
+#amountFormDiv{
+    display:relative;
+    background-color: #F7941D;   
+    padding-left:1.2em;
+    left:0%;
+    right:0%;
+    width:90%;
+    font-size: 1.4em; 
+}
+.resizeInputBoxes{
+    font-size: 1.5em;
+}
+#amountForm {
+    display:relative;
+    padding-top:3em;  
+}
+.resizeAlignDollars{
+    position:relative;
+   left:28%;
+    width: 76%;
+}
+#dollar-imagesDiv{
+    width:9em;
+    position: relative;
+    left:15%;
+}
+#resultsDiv {
+    position:absolute;
+    padding-bottom:10%;
+    padding-top:7%;
+    padding-right:6%;
+    background-color:#5271FF;
+    width:100%;
+    right:0px;
+    border-radius: 700px 0px 0px 700px;
+    top:0px;
+    bottom:0px;
+    left:9em;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5em;   
+}
+.size-align-coins{
+    position:absolute;
+    top:10.5em;
+    width: 12em;
+    left:3.2em;  
+}
+#dollar-resultsDiv {
+    position:absolute;
+    background-color:#5271FF;
+    left:110%; 
+    text-align:left;
+    top: -9%;
+}
+button{
+    margin-top:.3em;
+    margin-bottom:2em;
+    border-radius: 15px;    
+}
+#calculate-change{
+    background-color:#5271FF;
+    font-size:2em;
+}
+#clear-screen-btn{
+    position:relative;
+    background-color:#f0d0a9;
+    font-size: 1em;
+}
+#change-due-word-img{
+    position:absolute;
+    top: 3em;
+    width:3.5em;
+    left:-3.5%;
+}
+div:not(:last-child){
+    margin-right: 1.7em;
+}
+#quarters-output{
+    position:relative;
+    top:3.4em;
+    left:5.4em;
+    text-align:center;
+}
+#dimes-output{
+    position:relative;
+    top:3.4em;
+    left:5.4em;
+    text-align:center;
+}
+#nickels-output{
+    position:relative;
+    top:3.4em;
+    left:5.4em;
+    text-align:right;
+}
+#pennies-output{
+    position:relative;
+    top:3.4em;
+    left:5.6em;
+    text-align: right;
+}
+#change-due-label{
+    font-family: 'Kanit', sans-serif;
+    font-size: 2em;
+    margin:0;
+}
+#output-total-due{
+    font-family: 'Orbitron', sans-serif;
+    font-weight:600;
+    font-size:3em;
+    margin-top: 0;   
+}
+#errorMessage{
+    color:red;
+    font-size:1.4em;
+    background-color: yellow;
+    margin-left:auto;
+}
+#dollars-output{
+    position:absolute;    
+}
+.container {
+    position: relative;
+  }
+.image {
+    display: block;
+    height: auto;
+  }
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 65%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #F7941D;
+  }
+.container:hover .overlay {
+    opacity: 1;
+  } 
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
