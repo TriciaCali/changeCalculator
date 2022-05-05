@@ -88,7 +88,7 @@ function calculateChange(amountDue, amountGiven){
           totalChangeLeft = (totalChangeLeft - (currentMoneyCount* dollarCoins[i])+0.001);
           if (totalChangeLeft>=0){
             //count up animateValue(i, start, end, duration) 
-            animateValue(i, 0, currentMoneyCount, 500);
+            animateValue(i, 0, currentMoneyCount, 1000);
             document.getElementById(billCoinWordsArr[i]+"-output").innerHTML= currentMoneyCount;
         }}}
           else{//thee customer did not give enough money
