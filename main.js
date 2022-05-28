@@ -2,25 +2,16 @@
   // Then, it should calculate the amount of change due in dollars, quarters, dimes, nickels and pennies.
 //create an var dollarCoins object with dollar title and value listed highest to lowest(twenty:20.00, ten:10 etc)
   let dollarCoins = {//decending list - 0 is 20 dollar bill, then ten dollar bill etc...then coins follow quarter, dime etc..)
-    0: 20,
-    1: 10,
-    2:5,
-    3:1,
-    4:0.25,
-    5:0.10,
-    6:0.05,
-    7:0.01
+    0: [20,"twenty"],
+    1: [10,"ten"],
+    2: [5,"five"],
+    3: [1, "one"],
+    4: [0.25, "quarters"],
+    5: [0.10, "dimes"],
+    6: [0.05, "nickels"],
+    7: [0.01, "pennies"]
   }
-  let billCoinWordsArr = [// I will refactor code later to remove this array
-    "twenty",
-    "ten",
-    "five",
-   "one",
-    "quarters",
-  "dimes",
-   "nickels",
-   "pennies"
-  ]
+ 
  //countup animation displaying dollar and coin values
             //reference source: https://codepen.io/chriscoyier/pen/xxVBqEg
 function animateValue(i, start, end, duration) {
@@ -28,7 +19,7 @@ function animateValue(i, start, end, duration) {
               const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                document.getElementById(billCoinWordsArr[i]+"-output").innerHTML = Math.floor(progress * (end - start) + start);
+                document.getElementById(dollarCoins[i][1]+"-output").innerHTML = Math.floor(progress * (end - start) + start);
                 if (progress < 1) {
                   requestAnimationFrame(step);
                 }};
@@ -38,7 +29,7 @@ function animateValue(i, start, end, duration) {
     //var countUp = new CountUp('test', 2000);
     //countUp.start()  
     //clear all output boxes
-    billCoinWordsArr.map(x => document.getElementById(x +"-output").innerHTML="");
+    Object.keys(dollarCoins).map((x,i) => document.getElementById(dollarCoins[x][1]+"-output").innerHTML="");
     document.getElementById("output-total-due").innerHTML="";
     document.getElementById("errorMessage").innerHTML="";
     let amountDue = document.getElementById("amount-due").value;
@@ -83,13 +74,13 @@ function calculateChange(amountDue, amountGiven){
         document.getElementById("output-total-due").innerHTML="$"+ totalChangeDue.toFixed(2);
         document.getElementById("dollars-output").innerHTML=parseInt(totalChangeDue);
         for(let i =0; i< Object.keys(dollarCoins).length; i++){
-          let currentMoneyCount = parseInt(totalChangeLeft/ dollarCoins[i]);
+          let currentMoneyCount = parseInt(totalChangeLeft/ dollarCoins[i][0]);
           moneyCountArry.push(currentMoneyCount);
-          totalChangeLeft = (totalChangeLeft - (currentMoneyCount* dollarCoins[i])+0.001);
+          totalChangeLeft = (totalChangeLeft - (currentMoneyCount* dollarCoins[i][0])+0.001);
           if (totalChangeLeft>=0){
             //count up animateValue(i, start, end, duration) 
             animateValue(i, 0, currentMoneyCount, 1000);
-            document.getElementById(billCoinWordsArr[i]+"-output").innerHTML= currentMoneyCount;
+            document.getElementById(dollarCoins[i][1]+"-output").innerHTML= currentMoneyCount;
         }}}
           else{//thee customer did not give enough money
             document.getElementById("errorMessage").innerHTML="Customer owes you $"+ totalChangeDue.toFixed(2);
@@ -97,7 +88,7 @@ function calculateChange(amountDue, amountGiven){
           document.getElementById("cha-ching").play();     
     }
     function clearScrnBtnClick(){
-      billCoinWordsArr.map(x => document.getElementById(x +"-output").innerHTML="");
+      Object.keys(dollarCoins).map((x,i) => document.getElementById(dollarCoins[x][1]+"-output").innerHTML="");
       document.getElementById("output-total-due").innerHTML="";
       document.getElementById("amount-due").value="";
       document.getElementById("amount-received").value="";
